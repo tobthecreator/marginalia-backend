@@ -1,12 +1,15 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
+const shortid = require('shortid');
 
 const NoteSchema = new Schema({
   _id: { type: String, default: shortid.generate },
   sourceID: String,
   topicID: String,
   content: String,
-  timestamps: true,
+},
+{
+  timestamps: true
 });
 
 const Note = mongoose.model('note', NoteSchema);
